@@ -1,0 +1,30 @@
+@mixin opacityZero {-moz-opacity: 0; -khtml-opacity: 0; -webkit-opacity: 0; opacity: 0; -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0); filter: alpha(opacity=0);}
+@mixin fixHeight($h, $d:0, $type:'minus') {
+  height: $h * 1px;
+  line-height: if($type=='minus', (($h*1px)-($d*1px)), (($h*1px)+($d*1px)));
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {line-height: if($type=='minus', (($h*1px)-($d*1px)-1px), (($h*1px)+($d*1px)-1px));}
+  :root & {line-height: if($type=='minus', (($h*1px)-($d*1px)-1px), (($h*1px)+($d*1px)-1px));}
+}
+@mixin sr(){position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+@mixin ellipsis($line){
+  @if $line > 1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    line-height: 1.3em;
+    height: 1.3em * $line;
+  } @else {
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    word-wrap:normal;
+  }
+}
+
+@function get-vw($target) {
+  $vw-context: (720 * .01) * 1px;
+  @return ($target/$vw-context) * 1vw;
+}

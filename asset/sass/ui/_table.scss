@@ -1,0 +1,89 @@
+.table-ty1 {
+  font-size: 13px;
+  .es {
+    &:before, &:after {
+      color: $color1;
+      position: relative;
+      top: 2px;
+    }
+  }
+  .caption {margin: -20px 0 7px; font-size: 12px; text-align: right;
+    &.es:before {
+      content: '*';
+      margin-right: 5px;
+    }
+  }
+  table {
+    width: 100%;
+    table-layout: fixed;
+  }
+  td, th {
+    border: solid $grey-light2;
+    border-width: 1px 0 1px 1px;
+    padding: 5px 10px;
+    line-height: 30px;
+  }
+  tbody {
+    th {
+    }
+  }
+  tr > *:first-child {
+    border-left-width: 0;
+  }
+  th {
+    background: $grey-light4;
+    text-align: left;
+    &.es:after {
+      content: '*';
+      margin-left: 5px;
+    }
+  }
+  thead {
+    th {
+      text-align: center;
+      font-weight: 600;
+    }
+  }
+
+  .list-type {
+    th, td {
+      padding: 3px 10px 2px;
+      text-align: center;
+    }
+    th {
+      border-bottom-width: 2px;
+    }
+    td {
+      font-size: 12px;
+    }
+    tbody {
+      tr:nth-child(even) {background: $grey-light5;}
+    }
+  }
+
+  .full {width: 100%;}
+  .row {margin-top: 4px;
+    > #{$input-arr1} {width: 100%;}
+    & + .row {margin-top: 5px;}
+  }
+  & + .btn-groups,
+  & + .pagination {
+    margin-top: 20px;
+  }
+}
+
+.search-result {
+  margin-bottom: 10px;
+  @include clearfix;
+  .list-count {
+    float: left;
+    font-size: 13px;
+    margin-top: 16px;
+    em {
+      color: $color5;
+    }
+  }
+  .page-view-count {
+    float: right;
+  }
+}

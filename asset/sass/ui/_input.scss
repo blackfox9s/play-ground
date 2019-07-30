@@ -1,0 +1,29 @@
+#{$input-arr1} {
+  font-size: 13px;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid $grey-light2;
+}
+#{$input-arr2} {
+  padding: 0 10px;
+}
+
+#{$input-arr3} {
+  position: relative;
+  top: 2px;
+  margin-right: 2px;
+}
+select {
+  padding-bottom: 0;
+}
+
+.custom-input {
+  margin: 0 -7px;
+  label {
+    margin: 0 7px;
+  }
+}
+
+
+
+//#{$input-arr3} {cursor: pointer; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 3; @include opacityZero;}

@@ -1,0 +1,44 @@
+.page-tabs {
+  margin-bottom: 30px;
+  ul {
+    border-bottom: 1px solid $grey-light2;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  li {margin-bottom: -1px;}
+  a {
+    border: 1px solid transparent;
+    border-radius: 2px 2px 0 0;
+    font-size: 14px;
+    display: block;
+    padding: 12px 20px;
+    color: $grey-dark1;
+  }
+  .active {
+    a {
+      color: $grey-dark4;
+      font-weight: 500;
+      border-color: $grey-light2 $grey-light2 $grey-light6;
+    }
+  }
+}
+.nav-tabs {
+  margin-top: -.75rem;
+  margin-bottom: -.75rem;
+  border-bottom: 0
+}
+
+.nav-tabs .nav-item {
+  border-top: 0
+}
+
+.nav-tabs .nav-link {
+  padding: .75rem .625rem;
+  color: #73818f;
+  border-top: 0
+}
+
+.nav-tabs .nav-link.active {
+  color: #23282c;
+  background: $grey-light6
+}
