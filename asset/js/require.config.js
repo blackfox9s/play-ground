@@ -15,17 +15,21 @@ var module = {
     'jquery' : 'libs/jquery',
     'underscore' : 'libs/underscore',
     'moment' : 'libs/moment.min',
+    'picker' : 'libs/datetimepicker',
 
     /* fun */
     'utils' : 'fun/utils',
     'check' : 'fun/check',
+    'ui' : 'fun/ui',
     'develop' : 'develop',
   },
   //의존성 관리 라이브러리 플러그인 별 의존성 추가
   shim:{
     underscore : {exports: '_'},
-    check : {deps: ['jquery']},
+    picker : {deps: ['jquery', 'moment']},
+    check : {deps: ['jquery', 'underscore']},
     develop : {deps: ['jquery', 'underscore']},
+    ui : {deps: ['jquery', 'underscore', 'picker']},
   }
 };
 

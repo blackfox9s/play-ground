@@ -1,5 +1,4 @@
 .table-ty1 {
-  font-size: 13px;
   .es {
     &:before, &:after {
       color: $color1;
@@ -7,15 +6,19 @@
       top: 2px;
     }
   }
-  .caption {margin: -20px 0 7px; font-size: 12px; text-align: right;
+  .caption {margin: -20px 0 7px; font-size: 90%; text-align: right;
     &.es:before {
       content: '*';
       margin-right: 5px;
     }
   }
+  &.scroll {
+    overflow-x: auto;
+  }
   table {
     width: 100%;
     table-layout: fixed;
+    overflow-x: auto;
   }
   td, th {
     border: solid $grey-light2;
@@ -52,6 +55,7 @@
     }
     th {
       border-bottom-width: 2px;
+      border-bottom-color: $grey;
     }
     td {
       font-size: 12px;
@@ -60,15 +64,18 @@
       tr:nth-child(even) {background: $grey-light5;}
     }
   }
+  .view-type {
+    th {
+      width: 110px;
+      padding-right: 0;
+      white-space: nowrap;
+    }
+  }
 
   .full {width: 100%;}
   .row {margin-top: 4px;
     > #{$input-arr1} {width: 100%;}
     & + .row {margin-top: 5px;}
-  }
-  & + .btn-groups,
-  & + .pagination {
-    margin-top: 20px;
   }
 }
 

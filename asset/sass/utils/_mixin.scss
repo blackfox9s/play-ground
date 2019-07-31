@@ -1,3 +1,13 @@
+@mixin desktop {
+  @media (min-width: 769px) { @content; }
+}
+@mixin tablet {
+  @media (max-width: 768px) { @content; }
+}
+@mixin mobile {
+  @media (max-width: 480px) { @content; }
+}
+
 @mixin opacityZero {-moz-opacity: 0; -khtml-opacity: 0; -webkit-opacity: 0; opacity: 0; -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0); filter: alpha(opacity=0);}
 @mixin fixHeight($h, $d:0, $type:'minus') {
   height: $h * 1px;

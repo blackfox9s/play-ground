@@ -1,0 +1,30 @@
+#admin-wrap.login {
+  background: $grey-light3;
+  .contents {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.login-box {
+  width: 80%;
+  max-width: 320px;
+  padding: 20px 20px 25px;
+  box-shadow: 0 0 4px 3px $oColor2;
+  background: $grey-light6;
+  h1 {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  input {width: 100%;}
+  dl {}
+  dt {
+    color: $color6;
+    font-size: 12px;
+    margin: 12px 0 7px;
+  }
+  .fas {
+    margin-right: 5px;
+  }
+}

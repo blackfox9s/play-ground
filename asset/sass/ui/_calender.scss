@@ -1,0 +1,127 @@
+.data-picker {
+  input {
+    width: 48.6%;
+    max-width: 150px;
+    background: url('/asset/images/ui/icon_calender.png') 100% 50% no-repeat;
+  }
+  @include mobile {
+    width: 100%;
+    max-width: 100%;
+    input {
+      width: 100%;
+      & + input {
+        margin-top: 3px;
+      }
+    }
+  }
+}
+
+.datepicker {
+  margin-top: -1px;
+  position: relative;
+  display: inline-block;
+  font-weight: 300;
+  border: 1px solid $grey-light2;
+  background-color:	$grey-light3;
+}
+
+.datepicker_header {
+  margin: 0 20px;
+  padding: 7px 5px;
+  color: $grey-dark4;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1;
+  > span {
+    display: inline-block;
+    position: relative;
+  }
+  > a {
+    color: $color2;
+    font-family: $font2;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 0 12px;
+    &.before-month, &.next-month{
+      position: absolute;
+      top: 5px;
+    }
+    &.before-month{
+      left: 0;
+    }
+    &.next-month{
+      right: 0;
+    }
+  }
+}
+
+.datepicker_inner_container {
+  position: relative;
+  border-top: 1px solid $grey-light2;
+  overflow: hidden;
+  max-width: 240px;
+  &.is_timelist {
+    padding-right: 50px;
+    max-width: 290px;
+  }
+  &:after {
+    content: '.';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+.datepicker_calendar {
+  background-color:	$grey-light6;
+  margin: 0 0 -1px 0;
+  table {
+    padding: 10px;
+    width: 100%;
+    table-layout: fixed;
+  }
+  th, td {
+    padding: 9px 0;
+    text-align:center;
+    color: $grey-dark4;
+    &.wday_sat {color: $color2;}
+    &.wday_sun {color: $color5;}
+    &.day_another_month {color:	$grey}
+    &.day_in_past,
+    &.day_in_unallowed,
+    &.out_of_range {cursor: default; color: $grey;}
+    &.today {color: $grey-light6; background-color: $grey-light1 !important;}
+  }
+}
+
+.datepicker_timelist {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  border-left: 1px solid $grey-light2;
+  padding: 5px 0;
+  overflow: auto;
+  overflow-x: hidden;
+  background-color:	$grey-light6;
+  width: 50px;
+  height: inherit !important;
+  &::-webkit-scrollbar {overflow: hidden; width: 5px; background: $grey-light5;}
+  &::-webkit-scrollbar-corner {background: $grey-dark3;}
+  &::-webkit-scrollbar-button {display: none;}
+  &::-webkit-scrollbar-thumb {background: $grey-light1;}
+
+  > div.timelist_item {
+    padding: 5px 7px;
+    cursor: pointer;
+    &.time_in_past,
+    &.out_of_range {cursor: default; color: $grey-light1;}
+  }
+}
+
+.datepicker_calendar, .datepicker_timelist {
+  .active {color: $grey-light6; background-color: $color3;}
+  .hover {color: $grey-dark4; background-color:	$grey-light2;}
+}
