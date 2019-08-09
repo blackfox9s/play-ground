@@ -51,20 +51,34 @@ a {color: $grey-dark4;}
 #admin-wrap {
   display: flex;
   flex-direction: column;
+  h1 {
+    text-align: center;
+    line-height: 0;
+    vertical-align: top;
+    a, span {
+      font-size: 0;
+      display: inline-block;
+      width: 52px;
+      height: 48px;
+    }
+    span {
+      background: url('/asset/images/ui/logo.jpg') 0 0 no-repeat;
+    }
+  }
 }
 
 header {
+  h1 {
+    width: 200px;
+    margin-right: auto;
+    margin-bottom: 3px;
+  }
   top: 0;
   border-bottom: 1px solid $grey-light2;
   display: flex;
   flex: 0 0 auto;
   flex-flow: row nowrap;
   align-items: center;
-  h1 {
-    width: 200px;
-    margin-right: auto;
-    text-align: center;
-  }
   nav {
     margin-right: auto;
     flex: 1;
