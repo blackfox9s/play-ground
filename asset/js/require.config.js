@@ -17,11 +17,13 @@ var module = {
     'moment' : 'libs/moment.min',
     'picker' : 'libs/datetimepicker',
 
-    /* fun */
-    'utils' : 'fun/utils',
-    'check' : 'fun/check',
-    'ui' : 'fun/ui',
-    'develop' : 'develop',
+    /* common */
+    'utils' : 'common/utils',
+    'check' : 'common/check',
+
+    /* admin */
+    'adminUi' : 'admin/ui',
+    'adminDevelop' : 'admin/develop',
   },
   //의존성 관리 라이브러리 플러그인 별 의존성 추가
   shim:{

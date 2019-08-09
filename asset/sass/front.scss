@@ -3,7 +3,7 @@
 @import 'utils/vendors',
 'utils/function',
 'utils/mixin',
-'utils/variables_admin',
+'utils/variables_front',
 'utils/keyframes';
 
 // base
@@ -15,11 +15,4 @@
 @import 'common/loading';
 
 // ui
-@import 'admin/layout',
-'admin/paging',
-'admin/table',
-'admin/login',
-'admin/input',
-'admin/calender',
-'admin/tab',
-'admin/btn';
+@import 'front/layout';
