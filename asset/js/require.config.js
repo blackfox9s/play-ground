@@ -12,25 +12,30 @@ var module = {
   },
   paths: {
     /* libs */
-    'jquery' : 'libs/jquery',
-    'underscore' : 'libs/underscore',
-    'moment' : 'libs/moment.min',
-    'picker' : 'libs/datetimepicker',
+    'jquery' : '/asset/js/libs/jquery',
+    'underscore' : '/asset/js/libs/underscore',
+    'moment' : '/asset/js/libs/moment.min',
+    'picker' : '/asset/js/libs/datetimepicker',
 
     /* common */
-    'utils' : 'common/utils',
-    'check' : 'common/check',
+    'utils' : '/asset/js/fun/utils',
+    'check' : '/asset/js/fun/check',
 
     /* admin */
-    'adminUi' : 'admin/ui',
-    'adminDevelop' : 'admin/develop',
+    'adminUi' : '/asset/js/admin/ui',
+    'adminDevelop' : '/asset/js/admin/develop',
+
+    /* front */
+    'ui' : '/asset/js/front/ui',
   },
   //의존성 관리 라이브러리 플러그인 별 의존성 추가
   shim:{
     underscore : {exports: '_'},
     picker : {deps: ['jquery', 'moment']},
     check : {deps: ['jquery', 'underscore']},
-    develop : {deps: ['jquery', 'underscore']},
+    utils : {deps: ['jquery']},
+    adminDevelop : {deps: ['jquery', 'underscore']},
+    adminUi : {deps: ['jquery', 'underscore', 'picker']},
     ui : {deps: ['jquery', 'underscore', 'picker']},
   }
 };

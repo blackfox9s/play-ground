@@ -7,3 +7,8 @@
 @mixin mobile {
   @media (max-width: 480px) { @content; }
 }
+
+@mixin iconFooter($img){
+  &:before {background-image: url('/asset/images/layout/' + $img + '.png');}
+  &.act:before {background-image: url('/asset/images/layout/' + $img + '-act.png');}
+}

@@ -1,1 +1,86 @@
 @charset "UTF-8";
+
+html {
+  font-size: $fontSize;
+  font-family: $fontBase;
+  font-weight: 400;
+  line-height: 1.48;
+  color: $color1;
+  opacity: 0;
+  letter-spacing: rem(-0.5);
+  word-spacing: rem(1);
+  @include animation(pageEnter 0.5s);
+  @include animation-delay(0.5s);
+  @include animation-fill-mode(forwards);
+}
+
+html, body {
+  height: 100%;
+}
+
+h1 {
+  width: rem(121);
+  height: rem(126);
+  margin: 0 auto;
+
+  span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    background: url('/asset/images/ui/logo.png') 0 0 no-repeat;
+    background-size: contain;
+  }
+}
+
+#wrap {
+  &.page {
+    position: relative;
+    padding: 0 0 rem(124);
+    header {
+      padding: rem(75) 0;
+    }
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      background: $color8;
+    }
+    main {
+      padding: 0 rem(56) rem(56);
+    }
+  }
+}
+
+footer {
+  ul {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+  }
+  li {
+    display: table-cell;
+    text-align: center;
+  }
+  a {
+    display: block;
+    font-size: 0;
+    padding: rem(25) 0 rem(24);
+    cursor: pointer;
+    &:before {
+      content: '';
+      display: block;
+      width: rem(75);
+      height: rem(75);
+      background: 50% no-repeat;
+      background-size: contain;
+      margin: 0 auto;
+    }
+    &.buttonSchedule {@include iconFooter('ft-schedule');}
+    &.buttonReservation {@include iconFooter('ft-reservation');}
+    &.buttonMy {@include iconFooter('ft-my');}
+    &.buttonCustomer {@include iconFooter('ft-customer');}
+  }
+}

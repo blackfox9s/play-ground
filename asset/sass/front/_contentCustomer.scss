@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+.customer-part {
+  padding-top: rem(64);
+  text-align: center;
+  .call {
+    .btn {
+      width: rem(214);
+      height: rem(214);
+      line-height: rem(214);
+      color: $baseColor1;
+      font-weight: 800;
+      font-size: rem(45);
+      text-align: center;
+      border-radius: 100%;
+      background: $spot1BrandColor;
+    }
+    p {
+      margin-top: rem(60);
+    }
+    strong {
+      font-weight: 800;
+    }
+  }
+  .time {
+    margin-top: rem(106);
+  }
+  .social {
+    margin-top: rem(120);
+    a {
+      display: inline-block;
+      width: rem(110);
+      height: rem(110);
+      margin: 0 rem(40)
+    }
+    img {
+      width: 100%;
+    }
+  }
+
+  .main-spot1 & {
+    .call .btn {background: $spot1BrandColor;}
+  }
+
+  .main-spot2 & {
+    .call .btn {background: $spot2BrandColor;}
+  }
+
+  .main-spot3 & {
+    .call .btn {background: $spot3BrandColor;}
+  }
+}

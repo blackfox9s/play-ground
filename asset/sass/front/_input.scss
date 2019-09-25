@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+#{$input-arr1} {
+  font-weight: 600;
+  line-height: rem(94);
+  height: rem(96);
+  padding: 0 rem(48);
+  border-radius: rem(48);
+  border: 1px solid $grey-dark1;
+  &.notEmpty {
+    background: $grey-light6;
+    border-color: $grey-dark1;
+  }
+  @include placeholder {
+    color: $grey-dark1;
+  }
+}
+
+.btn-groups {
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  width: 100%;
+  border: 1px solid $oColor4;
+  &.ty2 {
+    border-color: $color1;
+    background: $color2;
+    color: $color1;
+    font-size: rem(42);
+    font-weight: 700;
+  }
+}

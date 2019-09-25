@@ -115,7 +115,8 @@
 			format: 'DD/MM/YYYY hh:mm'
 		},
 		ko: {
-			days: ['일', '월', '화', '수', '목', '금', '토'],
+			// days: ['일', '월', '화', '수', '목', '금', '토'],
+			days: ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
 			months: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
 				"11", "12"
 			],
@@ -1056,7 +1057,7 @@
 			$tr.append($td);
 
 			if (firstWday > i) { /* Before months day */
-				$td.text(beforeMonthLastDay + realDay);
+				$td.html('<span>'+ (beforeMonthLastDay + realDay) +'</span>');
 				$td.addClass('day_another_month');
 				$td.data("dateStr", dateBeforeMonth.getFullYear() + "/" + (
 					dateBeforeMonth.getMonth() + 1) + "/" + (
@@ -1065,14 +1066,14 @@
 				realDayObj.setMonth(dateBeforeMonth.getMonth());
 				realDayObj.setYear(dateBeforeMonth.getFullYear());
 			} else if (i < firstWday + lastDay) { /* Now months day */
-				$td.text(realDay);
+				$td.html('<span>'+ realDay +'</span>');
 				$td.data("dateStr", (date.getFullYear()) + "/" + (date.getMonth() +
 					1) + "/" + realDay);
 				realDayObj.setDate(realDay);
 				realDayObj.setMonth(date.getMonth());
 				realDayObj.setYear(date.getFullYear());
 			} else { /* Next months day */
-				$td.text(realDay - lastDay);
+				$td.html('<span>'+ (realDay - lastDay) +'</span>');
 				$td.addClass('day_another_month');
 				$td.data("dateStr", dateNextMonth.getFullYear() + "/" + (
 					dateNextMonth.getMonth() + 1) + "/" + (realDay -

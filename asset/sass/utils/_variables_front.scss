@@ -1,6 +1,15 @@
-$fontBase : 'Roboto', 'Noto Sans KR', 'Segoe WP', 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif;
+$fontSize: 36px;
+$fontBase : 'Nanum Gothic', 'Segoe WP', 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif;
 $font1 : 'Nanum Gothic';
 $font2 : '돋음', 'Dotum';
+
+$loadingColor1 : #424242;
+$loadingColor2 : #fff;
+
+$oColor1: rgba(0,0,0,0.5);
+$oColor2: rgba(213,213,213,0.6);
+$oColor3: rgba(0,0,0,0.2);
+$oColor4: transparent;
 
 $grey-dark4 : #212121;
 $grey-dark3 : #424242;
@@ -14,13 +23,25 @@ $grey-light4 : #f5f5f5;
 $grey-light5 : #fbfbfb;
 $grey-light6 : #fff;
 
-$oColor1: rgba(0,0,0,0.5);
-$oColor2: rgba(213,213,213,0.6);
+$baseColor1 : #060303;
 
-$color1: #d14925;
+$color1: #060303;
+$color2: #ffffff;
+$color3: #fecf05;
+$color4: #49b9bb;
+$color5: #8686fc;
+$color6: #b4b4b5;
+$color7: #231815;
+$color8: #efefef;
+
+$spot1BrandColor: #fecf05;
+$spot2BrandColor: #49b9bb;
+$spot3BrandColor: #ff8571;
+
+
 
 $input-arr-grp1: 'input[type="number"]', 'input[type="password"]', 'input[type="tel"]', 'input[type="email"]', 'input[type="text"], select, textarea';
-$input-arr-grp2: 'input[type="number"]', 'input[type="password"]', 'input[type="tel"]', 'input[type="email"]', 'input[type="text"]';
+$input-arr-grp2: 'input[type="number"]', 'input[type="password"]', 'input[type="tel"]', 'input[type="email"]', 'input[type="text"], select';
 $input-arr-grp3: 'input[type="checkbox"]', 'input[type="radio"]';
 $input-arr1: assign-inputs($input-arr-grp1);
 $input-arr2: assign-inputs($input-arr-grp2);
