@@ -23,6 +23,7 @@
 
 .login-form {
   margin-top: rem(140);
+
   input {
     width: 100%;
     border-color: $oColor4;
@@ -39,12 +40,14 @@
     dl {
       position: relative;
     }
+
     dt {
       color: $baseColor1;
       height: rem(96);
       line-height: rem(96);
       border-radius: rem(48);
       font-weight: 600;
+
       &:after {
         content: '';
         position: absolute;
@@ -53,17 +56,19 @@
         margin-top: rem(-48);
         width: rem(96);
         height: rem(96);
-        background: $baseColor1 url('/asset/images/arrow/select.png') no-repeat;
+        background: $baseColor1 url('../../../asset/images/arrow/select.png') no-repeat;
         background-size: contain;
         border-radius: 100%;
       }
     }
+
     dd {
       display: none;
       position: absolute;
       left: 0;
       right: 0;
       top: 100%;
+
       p {
         color: $baseColor1;
         font-weight: 800;
@@ -71,17 +76,22 @@
         line-height: rem(98);
         border-radius: rem(48);
         padding: 0 0 0 rem(48);
-        &.selected {display: none;}
-        &:nth-of-type(3n+1) {background: $spot1BrandColor;}
-        &:nth-of-type(3n+2) {background: $spot2BrandColor;}
-        &:nth-of-type(3n+3) {background: $spot3BrandColor;}
+        background: $spot1BrandColor;
+        @include spotCustomSelect;
+        &.selected {
+          display: none;
+        }
       }
     }
-    &.is-open dd {display: block;}
+
+    &.is-open dd {
+      display: block;
+    }
   }
 
   .btn-groups {
     margin-top: rem(160);
+
     .btn {
       border: none;
       background: $baseColor1;
@@ -90,27 +100,60 @@
       font-weight: 700;
       width: rem(214);
       height: rem(214);
+      line-height: rem(214);
       border-radius: 100%;
     }
   }
 
-  .main-spot1 &,
-  .main-spot2 &,
-  .main-spot3 & {
-    .btn-groups .btn {
-      &.bt-login {color: $baseColor1;}
+
+}
+
+.signup-form {
+  padding: 0 rem(56) rem(200);
+
+  .custom-table {
+    p {
+      &:nth-of-type(1) {
+        width: 40%
+      }
     }
   }
-  .main-spot1 & {
-    .sel input {background: $spot1BrandColor;}
-    .btn-groups .btn.bt-login {background: $spot1BrandColor;}
+
+  .btn-groups {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    padding: rem(25) rem(56) 0;
+    background: $grey-light6;
+
+    p {
+      margin: rem(20) 0;
+      font-size: rem(27);
+      color: $grey-dark1;
+    }
+
+    .btn {
+      border: none;
+      font-size: rem(42);
+      font-weight: 700;
+      width: 100%;
+      height: rem(96);
+      line-height: rem(100);
+      border-radius: rem(50);
+    }
   }
-  .main-spot2 & {
-    .sel input {background: $spot2BrandColor;}
-    .btn-groups .btn.bt-login {background: $spot2BrandColor;}
+}
+
+.agree-field-list {
+  margin-top: rem(80);
+  dd {
+    margin-top: rem(15);
   }
-  .main-spot3 & {
-    .sel input {background: $spot3BrandColor;}
-    .btn-groups .btn.bt-login {background: $spot3BrandColor;}
+  dt {
+    span {
+      font-weight: 800;
+    }
   }
 }

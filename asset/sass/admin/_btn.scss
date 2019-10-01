@@ -333,6 +333,10 @@ a.btn.disabled, fieldset:disabled a.btn {
 }
 
 .btn-groups {
-  margin-top: 20px;
+  margin-top: 1.5rem;
   text-align: center;
+  @include clearfix;
+  & + .table-ty1 {
+    margin-top: 0.5rem;
+  }
 }

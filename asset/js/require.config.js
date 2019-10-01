@@ -13,6 +13,7 @@ var module = {
   paths: {
     /* libs */
     'jquery' : '/asset/js/libs/jquery',
+    'form' : '/asset/js/libs/form.min',
     'underscore' : '/asset/js/libs/underscore',
     'moment' : '/asset/js/libs/moment.min',
     'picker' : '/asset/js/libs/datetimepicker',
@@ -34,7 +35,7 @@ var module = {
     picker : {deps: ['jquery', 'moment']},
     check : {deps: ['jquery', 'underscore']},
     utils : {deps: ['jquery']},
-    adminDevelop : {deps: ['jquery', 'underscore']},
+    adminDevelop : {deps: ['jquery', 'form', 'underscore']},
     adminUi : {deps: ['jquery', 'underscore', 'picker']},
     ui : {deps: ['jquery', 'underscore', 'picker']},
   }

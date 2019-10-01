@@ -16,14 +16,14 @@ var utils = {
       return str;
     }else if(str.length < 7){
       tmp += str.substr(0, 4);
-      tmp += '.';
+      tmp += '-';
       tmp += str.substr(4);
       return tmp;
     }else{
       tmp += str.substr(0, 4);
-      tmp += '.';
+      tmp += '-';
       tmp += str.substr(4, 2);
-      tmp += '.';
+      tmp += '-';
       tmp += str.substr(6,2);
       return tmp;
     }
@@ -60,10 +60,29 @@ var utils = {
       $ele.addClass('is-act');
       if(txt !== undefined){$ele.find('em').html(txt);}
     }else{
-      setTimeout(function(){
-        $ele.removeClass('is-act');
-      }, isMobile ? 800 : 800);
+      $ele.removeClass('is-act');
     }
+  },
+  empty: function(value) {
+    if (value === null) {
+      return true;
+    } else if (typeof value === 'undefined') {
+      return true;
+    } else if (typeof value === 'string' && value === '') {
+      return true;
+    } else if (Array.isArray(value) && value.length < 1) {
+      return true;
+    } else if (typeof value === 'object' &&
+      value.constructor.name === 'Object' &&
+      Object.keys(value).length < 1 &&
+      Object.getOwnPropertyNames(value) < 1) {
+      return true;
+    } else if (typeof value === 'object' &&
+      value.constructor.name === 'String' &&
+      Object.keys(value).length < 1) {
+      return true;
+    }
+    return false;
   }
 };
 
@@ -73,6 +92,7 @@ var cookie = {
   set : function (name,value,options) {
     options = options || {};
     this.cookie_arr = [escape(name) + '=' + escape(value)];
+    if(!options.path) {options.path = '/';}
     /* expires */
     if (options.expires){
       if( typeof options.expires === 'object' && options.expires instanceof Date ){
@@ -95,6 +115,7 @@ var cookie = {
     /* path */
     if (options.path){
       var path = 'path=' + options.path;
+      console.log(path);
       this.cookie_arr.push (path);
     }
     /* secure */

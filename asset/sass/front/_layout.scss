@@ -5,13 +5,25 @@ html {
   font-family: $fontBase;
   font-weight: 400;
   line-height: 1.48;
-  color: $color1;
+  color: $baseColor1;
   opacity: 0;
-  letter-spacing: rem(-0.5);
+  letter-spacing: rem(-2);
   word-spacing: rem(1);
   @include animation(pageEnter 0.5s);
   @include animation-delay(0.5s);
   @include animation-fill-mode(forwards);
+  @media (min-width: 769px) {
+    font-size: 33px;
+  }
+  @media (max-width: 768px) {
+    font-size: 30px;
+  }
+  @media (max-width: 425px) {
+    font-size: 16px;
+  }
+  @media (max-width: 375px) {
+    font-size: 14px;
+  }
 }
 
 html, body {
@@ -37,20 +49,20 @@ h1 {
   &.page {
     position: relative;
     padding: 0 0 rem(124);
-    header {
-      padding: rem(75) 0;
-    }
-    footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 10;
-      background: $color8;
-    }
     main {
       padding: 0 rem(56) rem(56);
     }
+  }
+  header {
+    padding: rem(75) 0;
+  }
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: $grey-light3;
   }
 }
 

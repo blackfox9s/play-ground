@@ -1,14 +1,69 @@
 @mixin desktop {
-  @media (min-width: 769px) { @content; }
-}
-@mixin tablet {
-  @media (max-width: 768px) { @content; }
-}
-@mixin mobile {
-  @media (max-width: 480px) { @content; }
+  @media (min-width: 769px) {
+    @content;
+  }
 }
 
-@mixin iconFooter($img){
-  &:before {background-image: url('/asset/images/layout/' + $img + '.png');}
-  &.act:before {background-image: url('/asset/images/layout/' + $img + '-act.png');}
+@mixin tablet {
+  @media (max-width: 768px) {
+    @content;
+  }
 }
+
+@mixin mobile {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin clearfix {
+  display: block;
+  zoom: 1;
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin inputTransparent {
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  -webkit-opacity: 0;
+  opacity: 0;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  filter: alpha(opacity=0);
+}
+
+@mixin iconFooter($img) {
+  &:before {
+    background-image: url('/asset/images/layout/' + $img + '.png');
+  }
+  &.act:before {
+    background-image: url('/asset/images/layout/' + $img + '-act.png');
+  }
+}
+
+@mixin spotColorSet($spot){
+  color: $baseColor1;
+  @if $spot == 1 {
+    background: $spot1BrandColor;
+  } @else if $spot == 2 {
+    background: $spot2BrandColor;
+  } @else if $spot == 3 {
+    background: $spot3BrandColor;
+  }
+}
+
+@mixin spotCustomSelect{
+  &:nth-of-type(3n+1) {
+    background: $spot1BrandColor;
+  }
+  &:nth-of-type(3n+2) {
+    background: $spot2BrandColor;
+  }
+  &:nth-of-type(3n+3) {
+    background: $spot3BrandColor;
+  }
+}
+

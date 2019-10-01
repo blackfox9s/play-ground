@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+.main-spot1 {
+  /* _calender.scss */
+  .datepicker_calendar {
+    .active span {
+      background-color: $spot1BrandColor;
+    }
+  }
+
+  /* _input.scss */
+  .custom-input-checkbox {
+    input:checked + span {
+      color: $spot1BrandColor;
+      * {color: $spot1BrandColor;}
+      a {border-bottom-color: $spot1BrandColor;}
+      &:before {background-color: $spot1BrandColor;}
+    }
+  }
+
+  /* 로그인/회원가입 : _contentLogin.scss */
+  .login-form {
+    .sel input {@include spotColorSet(1);}
+    .btn-groups .btn.bt-login {@include spotColorSet(1);}
+  }
+
+  .signup-form {
+    .btn-groups .btn.bt-join {@include spotColorSet(1);}
+  }
+
+  /* 자녀등록 */
+  .children-part {
+    .bt-childRegister {
+      color: $baseColor1;
+      background: $spot1BrandColor;
+    }
+  }
+}

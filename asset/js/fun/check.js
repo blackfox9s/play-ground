@@ -51,7 +51,7 @@ $.fn.serializeSend = function(){
       if($(this).is(':checked')){
         formData[name] = $(this).val();
       }else{
-        formData[name] = ((typeof $(this).val())==='string' ? 'n' : '1');
+        formData[name] = ((typeof $(this).val())==='string' ? 'n' : '');
       }
     }else if(type==='radio'){
       if($(this).is(':checked')){formData[name] = $(this).val();}
@@ -74,8 +74,12 @@ $.fn.serializeForm = function(){
         form.append(name, value);
       }
     } else {
-      if(type==='checkbox' && $this.is(':checked')){
-        value = $this.val();
+      if(type==='checkbox'){
+        if($this.is(':checked')){
+          value = $this.val();
+        }else{
+          value = ((typeof $(this).val())==='string' ? 'n' : '');
+        }
       }else if(type==='select'){
         value = $this.find('option:selected').val();
       }else{

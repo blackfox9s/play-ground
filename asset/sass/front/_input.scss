@@ -7,12 +7,75 @@
   padding: 0 rem(48);
   border-radius: rem(48);
   border: 1px solid $grey-dark1;
+
   &.notEmpty {
     background: $grey-light6;
     border-color: $grey-dark1;
   }
+
   @include placeholder {
+    color: $grey;
+  }
+}
+
+#{$input-arr3} {
+  @include inputTransparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.custom-input-checkbox {
+  display: inline-block;
+  position: relative;
+
+  span {
+    display: block;
+    padding-left: rem(64);
+    font-size: rem(29);
     color: $grey-dark1;
+    min-height: rem(55);
+
+    * {
+      color: $grey-dark1;
+    }
+
+    a {
+      position: relative;
+      z-index: 3;
+      border-bottom: 1px solid $grey-dark1;
+    }
+
+    i {
+      font-size: rem(20);
+    }
+
+    &:before, &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+    }
+    &:before {
+      top: rem(-7);
+      width: rem(53);
+      height: rem(53);
+      background: $grey-dark1;
+    }
+    &:after {
+      top: rem(-9);
+      width: rem(57);
+      height: rem(57);
+      background: url('../../../asset/images/arrow/checkbox-bg.png') 50% no-repeat;
+      background-size: contain;
+    }
+  }
+
+  input:checked + span {
+    color: $spot1BrandColor;
+    * {color: $spot1BrandColor;}
+    a {border-bottom-color: $spot1BrandColor;}
+    &:before {background-color: $spot1BrandColor;}
   }
 }
 
@@ -22,13 +85,10 @@
 
 .btn {
   display: inline-block;
+  vertical-align: top;
   width: 100%;
   border: 1px solid $oColor4;
-  &.ty2 {
-    border-color: $color1;
-    background: $color2;
-    color: $color1;
-    font-size: rem(42);
-    font-weight: 700;
-  }
+  color: $grey-light6;
+  background: $baseColor1;
+  box-shadow:  0 0 10px $oColor3 inset;
 }
