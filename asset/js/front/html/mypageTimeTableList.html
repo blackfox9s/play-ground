@@ -1,0 +1,19 @@
+<li class="{stateCode}">
+  <input type="hidden" name="seq" value="{seq}" />
+  <div class="program-row">
+    <span class="cell program-time">{time}</span>
+    <span class="cell program-title">{title}</span>
+    <span class="cell program-amount">{amountUnit}</span>
+    <span class="cell program-state">
+      <button  class="btn bt-state">{state}</button>
+    </span>
+  </div>
+  <div class="detail-row {stateCode}">
+    <div class="cell detail-child-list">
+      {childrenName}
+    </div>
+    <div class="cell detail-btn-groups">
+      <button class="btn bt-cancel">예약<br />취소</button>
+    </div>
+  </div>
+</li>

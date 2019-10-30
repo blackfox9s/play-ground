@@ -38,7 +38,7 @@ a {color: $grey-dark4;}
     font-size: 15px;
     margin: 30px 0 10px;
     color: #000;
-    font-weight: 600;
+    font-weight: 700;
     &:first-child {
       margin-top: 0;
     }
@@ -96,7 +96,7 @@ header {
         display: block;
         text-align: center;
         line-height: 56px;
-        font-weight: 300;
+        font-weight: 400;
       }
       & + .dep1 {
         margin-left: -1px;
@@ -119,8 +119,11 @@ header {
     }
     .active > a {
       color: $color3;
-      font-weight: 500;
+      font-weight: 700;
     }
+  }
+  .all-menu {
+    display: none;
   }
   .logout {
     cursor: pointer;
@@ -141,11 +144,14 @@ header {
       border-top: 1px solid $grey-light2;
       order: 3;
       flex: 1 100%;
+      overflow-x: auto;
       .dep1 {
-        border-width: 0;
+        border-width: 0 0 1px;
         & + .dep1 {border-left-width: 1px;}
         > a {
           line-height: 40px;
+          padding: 0 20px;
+          white-space: nowrap;
         }
       }
     }
@@ -153,17 +159,26 @@ header {
       order: 2;
     }
   }
+
+  @include mobile {
+    nav {
+      .dep1 {
+        > a {
+          padding: 0 8px;
+        }
+      }
+    }
+  }
 }
 
 .title-sec {
-  flex: 1 1 auto;
   * {vertical-align: top;}
   background: $color6;
   font-size: 12px;
   padding: 12px 20px 10px;
   a, span {
     color: $grey-light6;
-    font-weight: 200;
+    font-weight: 400;
   }
   .fas {
     position: relative;
@@ -199,6 +214,46 @@ header {
   }
 }
 
+.pop {
+  &-header {
+    padding: 16px 16px 12px;
+    h1 {
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .fa-times {
+      font-size: 20px;
+      right: 16px;
+      top: 14px;
+    }
+  }
+  &-body {
+    padding: 16px;
+  }
+}
 
-
-
+.list-control {
+  overflow: hidden;
+  margin: -5px 0 0 -15px;
+  span {
+    float: left;
+    position: relative;
+    padding: 7px 15px 7px 10px;
+    border: 1px solid $grey;
+    border-radius: 3px;
+    margin: 5px 0 0 15px;
+    white-space: nowrap;
+    line-height: 1;
+  }
+  button {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    margin-top: -10px;
+    background: $grey-light6;
+    border-radius: 100%;
+    font-size: 20px;
+  }
+}

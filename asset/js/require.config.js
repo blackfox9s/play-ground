@@ -19,8 +19,8 @@ var module = {
     'picker' : '/asset/js/libs/datetimepicker',
 
     /* common */
-    'utils' : '/asset/js/fun/utils',
-    'check' : '/asset/js/fun/check',
+    'utils' : '/asset/js/common/utils',
+    'check' : '/asset/js/common/check',
 
     /* admin */
     'adminUi' : '/asset/js/admin/ui',
@@ -28,6 +28,7 @@ var module = {
 
     /* front */
     'ui' : '/asset/js/front/ui',
+    'public' : '/asset/js/front/public',
   },
   //의존성 관리 라이브러리 플러그인 별 의존성 추가
   shim:{
@@ -38,6 +39,7 @@ var module = {
     adminDevelop : {deps: ['jquery', 'form', 'underscore']},
     adminUi : {deps: ['jquery', 'underscore', 'picker']},
     ui : {deps: ['jquery', 'underscore', 'picker']},
+    public : {deps: ['jquery', 'underscore', 'check', 'utils', 'ui']},
   }
 };
 

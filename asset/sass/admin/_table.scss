@@ -25,6 +25,7 @@
     border-width: 1px 0 1px 1px;
     padding: 5px 10px;
     line-height: 30px;
+    vertical-align: middle;
   }
   tbody {
     th {
@@ -44,14 +45,16 @@
   thead {
     th {
       text-align: center;
-      font-weight: 600;
+      font-weight: 700;
     }
   }
 
   .list-type {
     th, td {
-      padding: 3px 10px 2px;
+      padding: 10px 10px 9px;
       text-align: center;
+      line-height: 1.5;
+      vertical-align: middle;
     }
     th {
       border-bottom-width: 2px;
@@ -69,6 +72,41 @@
       width: 110px;
       padding-right: 0;
       white-space: nowrap;
+    }
+  }
+  .calendar-type {
+    min-width: 750px;
+    th, td {
+      padding: 3px 10px 2px;
+      text-align: center;
+    }
+    th {
+      border-bottom-width: 2px;
+      border-bottom-color: $grey;
+    }
+    td {
+      font-size: 12px;
+    }
+    tbody {
+      td {
+        padding: 0;
+        line-height: 1.5;
+      }
+    }
+    dl {
+      min-height: 170px;
+      padding: 15px 15px 10px;
+    }
+    dt {
+      text-align: right;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    dd {
+      text-align: right;
+      font-size: 11px;
+      &:nth-of-type(odd) {color: $color2;}
+      &:nth-of-type(even) {color: $color5;}
     }
   }
 

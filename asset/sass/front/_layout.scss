@@ -50,7 +50,7 @@ h1 {
     position: relative;
     padding: 0 0 rem(124);
     main {
-      padding: 0 rem(56) rem(56);
+      padding: 0 rem(85) rem(60);
     }
   }
   header {
@@ -94,5 +94,6 @@ footer {
     &.buttonReservation {@include iconFooter('ft-reservation');}
     &.buttonMy {@include iconFooter('ft-my');}
     &.buttonCustomer {@include iconFooter('ft-customer');}
+    &.buttonCharge {@include iconFooter('ft-charge');}
   }
 }

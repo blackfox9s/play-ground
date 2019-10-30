@@ -34,43 +34,24 @@
   </article>
 </section>
 
-<div id="wrap" class="page" data-act-menu="my">
+<div id="wrap" class="page" data-act-menu="reservation">
   <header><h1><span>색놀이터</span></h1></header>
   <main>
-    <section class="my-reservation-part">
-      <div class="logout">
-        <button type="button" onclick="ui.logout();">로그아웃 <i class="far fa-times-circle"></i></button>
-      </div>
+    <section class="reservation-part">
+      <input type="hidden" name="point" value="0" />
       <div class="custom-table view">
-        <dl data-info="parent">
-          <dt><p>적립금 : <span class="point"></span>원</p></dt>
-          <dd class="no-list">
-            <p>등록된 정보가 없습니다.</p>
-          </dd>
-        </dl>
         <dl data-info="child">
-          <dt class="sr-only">자녀정보</dt>
+          <dt><p>적립금 : <span class="point"></span>원</p></dt>
           <dd class="no-list">
             <p>등록된 자녀가 없습니다.</p>
           </dd>
         </dl>
       </div>
-      <div class="my-reservation-sch">
-        <button>예약현황 보기</button>
-      </div>
-      <div class="my-reservation-list">
-        <ul></ul>
-      </div>
-      <div class="my-reservation-detail">
+      <div class="data-picker" data-today="false"></div>
+      <div class="timetable-group">
         <div class="timetable"></div>
-      </div>
-      <div class="my-reservation-cancel-confirm">
-        <p class="txt1">예약을 취소하시겠습니까?</p>
-        <p class="txt2"><a href="#">[  취소/환불 규정을 확인해 주세요. ]</a></p>
-        <div class="btn-groups">
-          <button class="btn bt-cancel-no">NO</button>
-          <button class="btn bt-cancel-yes">YES</button>
-        </div>
+        <div class="timetable-select"></div>
+        <div class="charge-list"></div>
       </div>
     </section>
   </main>
@@ -86,6 +67,6 @@
 </div>
 
 <script type="text/javascript" src="/asset/js/require.config.js"></script>
-<script type="text/javascript" data-main="/asset/js/front/pageMyPage" src="/asset/js/libs/require.js"></script>
+<script type="text/javascript" data-main="/asset/js/front/pageReservation" src="/asset/js/libs/require.js"></script>
 </body>
 </html>

@@ -32,7 +32,7 @@ $calenderColor5: #030303;
   > a {
     color: $grey-light6;
     font-family: $font2;
-    font-weight: bold;
+    font-weight: 700;
     cursor: pointer;
     width: rem(33);
     height: rem(33);
@@ -106,7 +106,7 @@ $calenderColor5: #030303;
   .active {
     span {
       background-color: $spot1BrandColor;
-      font-weight: 600;
+      font-weight: 700;
     }
   }
 }

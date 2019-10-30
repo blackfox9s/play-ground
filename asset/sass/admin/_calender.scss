@@ -1,4 +1,5 @@
 .data-picker {
+  display: inline-block;
   input {
     width: 48.6%;
     max-width: 150px;
@@ -20,7 +21,7 @@
   margin-top: -1px;
   position: relative;
   display: inline-block;
-  font-weight: 300;
+  font-weight: 400;
   border: 1px solid $grey-light2;
   background-color:	$grey-light3;
 }
@@ -40,7 +41,7 @@
   > a {
     color: $color2;
     font-family: $font2;
-    font-weight: bold;
+    font-weight: 700;
     cursor: pointer;
     font-size: 20px;
     padding: 0 12px;

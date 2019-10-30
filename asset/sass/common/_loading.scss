@@ -55,6 +55,6 @@
     top: 0;
     left: 0;
     width: 100px;
-    @include animation(loading 2s linear 0s infinite normal);
+    @include animation(loading 1s linear 0s infinite normal);
   }
 }

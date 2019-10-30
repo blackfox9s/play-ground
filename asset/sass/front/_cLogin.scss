@@ -46,7 +46,7 @@
       height: rem(96);
       line-height: rem(96);
       border-radius: rem(48);
-      font-weight: 600;
+      font-weight: 700;
 
       &:after {
         content: '';
@@ -71,7 +71,7 @@
 
       p {
         color: $baseColor1;
-        font-weight: 800;
+        font-weight: 700;
         height: rem(96);
         line-height: rem(98);
         border-radius: rem(48);
@@ -153,7 +153,7 @@
   }
   dt {
     span {
-      font-weight: 800;
+      font-weight: 700;
     }
   }
 }

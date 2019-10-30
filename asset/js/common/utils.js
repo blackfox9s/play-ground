@@ -2,6 +2,9 @@ var utils = {
   numPad : function(n, width) {
     return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
   },
+  numUnit : function(num) {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  },
   inputEmptyCheck: function(obj){
     if(obj.value === '') {
       $(obj).removeClass('notEmpty');
@@ -28,7 +31,7 @@ var utils = {
       return tmp;
     }
   },
-  autoPhone(str){
+  autoPhone : function(str){
     str = str.replace(/[^0-9]/g, '');
     var tmp = '';
     if( str.length < 4){
@@ -53,6 +56,11 @@ var utils = {
       tmp += str.substr(7);
       return tmp;
     }
+  },
+  nameHidden : function(str) {
+    var regExp = /([가-힣1-9]{1})([가-힣1-9]{1,})([가-힣1-9]{1})/g;
+    var hiddenText = String('*').repeat(str.length-2);
+    return str.replace(regExp, '$1'+ hiddenText +'$3');
   },
   loading: function(flag, txt){
     var $ele = $('.loading');
@@ -156,3 +164,21 @@ var session = {
   get : function(name){return sessionStorage.getItem(name);},
   del : function(name){sessionStorage.removeItem(name);},
 };
+
+/* popup */
+var popup = {
+  layerOpen : function(n){
+    var $obj = $('[data-pop-name="'+ n +'"]');
+    $obj.show();
+    $obj.find('.pop-sec').css('max-height', $(window).height());
+
+    $obj.find('[data-bt-act="pop-close"]').off('click').on('click', function(){
+      popup.layerClose(n);
+      return false;
+    });
+  },
+  layerClose : function(n){
+    $('[data-pop-name="'+ n +'"]').hide();
+    return false;
+  }
+}

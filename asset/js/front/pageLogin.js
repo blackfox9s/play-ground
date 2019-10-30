@@ -43,10 +43,9 @@ var login = (function () {
     $ele.find('button.bt-login').off('click').on('click', function(){
       if(!checkFrm($ele)) {return false;}
       var sendData = $ele.serializeSend();
-      console.log(sendData);
       utils.loading(true, 'login');
       setTimeout(function(){
-        ajaxCall.get('/member/login.art', {data:sendData, callback:btnActResult});
+        ajaxCall.get('/member/api/login.art', {data:sendData, callback:btnActResult});
       }, 100);
     });
   }
@@ -63,7 +62,7 @@ var login = (function () {
       }
       utils.loading(true, 'join');
       setTimeout(function(){
-        ajaxCall.get('/member/signup.art', {data: sendData, callback:btnActResult});
+        ajaxCall.get('/member/api/signup.art', {data: sendData, callback:btnActResult});
       }, 100);
     });
   }
