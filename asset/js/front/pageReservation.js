@@ -190,7 +190,9 @@ var reservation = (function () {
       bookingComplete();
       messageSet($ele, 'charge');
     } else if(response.code === '302' && sendData.depositType === 'DT02') {
-      location.href = isLocal ? '/reservation/charge.html' : '/reservation/charge.art';
+      setTimeout(function(){
+        location.href = isLocal ? '/reservation/charge.html' : '/reservation/charge.art';
+      }, 500);
     } else {
       messageSet($ele, 'custom', [response.msg]);
     }
