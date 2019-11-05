@@ -1,12 +1,11 @@
 "use strict";
 
-var bustDate = new Date();
-var bustTime = bustDate.getFullYear() + '' +  (bustDate.getMonth() + 1) + bustDate.getDate() + '' + + bustDate.getHours() + '' + 20/*bustDate.getTime()*/;
+var bustDate = new Date().getTime();
 
 var module = {
   waitSeconds: 0,
   urlArgs : function(url){
-    var args = '?bust=' + bustTime;
+    var args = '?bust=' + bustDate;
     if(url === 'post'){args += '&autoload=false';}
     return args;
   },
