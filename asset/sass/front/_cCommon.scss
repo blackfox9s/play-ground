@@ -245,6 +245,36 @@
     top: rem(2);
   }
 }
+.slick {
+  &-arrow {
+    width: rem(30);
+    height: rem(48);
+    font-size: 0;
+    background: transparent 0 0 no-repeat;
+    background-size: contain;
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+  }
+  &-prev {
+    left: rem(-30);
+    background-image: url('../../../asset/images/arrow/slick-arrowL.png');
+  }
+  &-next {
+    right: rem(-30);
+    background-image: url('../../../asset/images/arrow/slick-arrowR.png');
+  }
+}
+
+/* 스케줄 */
+.schedule-part {
+  * {
+    outline: none;
+  }
+  img {
+    width: 100%;
+  }
+}
 
 /* 예약 */
 .reservation-part {
@@ -364,6 +394,12 @@
         transform: translateY(-50%);
         font-size: rem(28);
         font-weight: bold;
+      }
+      &.active {
+        div {
+          background: $baseColor1;
+          color: $grey-light6;
+        }
       }
       &.disabled {
         div {

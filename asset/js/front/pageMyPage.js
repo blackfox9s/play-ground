@@ -104,6 +104,7 @@ var myReservation = (function () {
   }
   function btnReservationAct(){
     $obj.find('li').not('.disabled').off('click').on('click', function(){
+      $(this).addClass('active').siblings().removeClass('active');
       sendData.programDate = $(this).find('input').val();
       cancelConfirm(false);
       getTimeTableList();
@@ -141,7 +142,7 @@ var myReservation = (function () {
       });
     } else if(type==='list') {
       if(timeTableSource.list === '') {timeTableSource.list = ajaxCall.html('/mypageTimeTableList.html');}
-      return timeTableSource.list.replace(/({idx}|{seq}|{time}|{title}|{amountUnit}|{stateCode}|{state}|{childrenName})/g, function(v){
+      return timeTableSource.list.replace(/({idx}|{seq}|{time}|{title}|{amountUnit}|{stateCode}|{state}|{childrenName}|{cancelBtn})/g, function(v){
         switch(v){
           case '{seq}' : return val.reservationSeq;
           case '{time}' : return val.startTime;
@@ -150,6 +151,7 @@ var myReservation = (function () {
           case '{stateCode}' : return val.reservationStatus;
           case '{state}' : return val.reservationStatusName;
           case '{childrenName}' : return val.childrenName;
+          case '{cancelBtn}' : return val.cancelStatus === 'y' ? '<button class="btn bt-cancel">예약<br />취소</button>' : '';
         }
       });
     }
@@ -188,15 +190,17 @@ var myReservation = (function () {
     var $obj = $ele.find('.my-reservation-detail');
     var response = ajaxCall.post('/reservation/api/reservationCancelCheck.art', {data: sendData, isReturn: true});
     if(val === 'whether') {
-      return !(response.code !== '100')
+      return !(response.code !== '100' && response.code !== '308')
     } else {
-      if(response.code !== '100') {cancelConfirm(false); timeTableSelectedInfo = null;}
       if(response.code === '100') {
         cancelConfirm(true);
         messageSet($obj, 'cancelContinue')
       } else if(response.code === '308'){
-        messageSet($obj, 'cancelNot')
+        cancelConfirm(true);
+        messageSet($obj, 'custom', [response.msg])
       } else {
+        cancelConfirm(false);
+        timeTableSelectedInfo = null;
         messageSet($obj, 'custom', [response.msg])
       }
     }

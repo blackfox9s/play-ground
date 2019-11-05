@@ -83,9 +83,6 @@ function messageSet($obj, type, customArr){
     cancelBefore: [
       '예약취소는 <strong>놀이 시작 시간<br /> 24시간 전까지 가능</strong>합니다.'
     ],
-    cancelNot: [
-      '예약취소 시간이 지나 <strong>적립금<br /> 반환이 진행되지 않습니다.</strong>'
-    ],
     cancelContinue: [
       '예약금 환불이 가능합니다.'
     ],

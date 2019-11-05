@@ -17,6 +17,7 @@ var module = {
     'underscore' : '/asset/js/libs/underscore',
     'moment' : '/asset/js/libs/moment.min',
     'picker' : '/asset/js/libs/datetimepicker',
+    'slick' : '/asset/js/libs/slick.min',
 
     /* common */
     'utils' : '/asset/js/common/utils',
