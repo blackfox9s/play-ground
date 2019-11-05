@@ -117,11 +117,9 @@ var reservation = (function () {
       sendData.timetableSeq = sendData.timetableInfo.timetableSeq;
       $charge.hide();
       messageSet($ele, 'remove');
+
       // 영업 시간인체 입금 체크 가능한 시간 체크 추가
-
-      var resTime = ajaxCall.post('/reservation/api/isOpen.art', {data: sendData, isReturn: true});
-
-      if(point < sendData.timetableInfo.amount && resTime.code !== '100') {
+      if(point < sendData.timetableInfo.amount && openTimeCheck().code !== '100') {
         messageSet($ele, 'resPointTimeCheck');
       } else {
         $this.addClass('active').siblings().removeClass('active');
@@ -155,6 +153,10 @@ var reservation = (function () {
       sendData.depositType = $(this).attr('data-depositType');
       booking();
     });
+  }
+
+  function openTimeCheck(){
+    return ajaxCall.post('/reservation/api/isOpen.art', {data: sendData, isReturn: true})
   }
 
   /* 강좌별 수강생 목록 */

@@ -22,7 +22,7 @@ var ui = (function () {
     var signupPageCheck = ($('.signup-form').length > 0);
     if(!cookie.get('memberSeq')) {
       if(!loginPageCheck && !signupPageCheck) {
-        location.href = isLocal ? '/member/login.html' : '/';
+        location.href = isLocal ? '/member/login.html' : '/index.art';
       }
     } else {
       loginCookieSet();
