@@ -168,7 +168,7 @@ var reservation = (function () {
       source = '';
       for(var i=0; i< list.length; i++) {
         var info = list[i];
-        source += '<span>'+ utils.nameHidden(info.name) +'('+ info.displayAge + (info.displayAgeType === 'y' ? '세' : '개월') +')</span>'
+        source += '<span>'+ utils.nameHidden(info.name) + '</span>'
       }
     }
     return source;
@@ -264,11 +264,14 @@ var charge = (function () {
     if($ele.length > 0){
       $itemDT02.find('button').off('click').on('click', function(){
         var $parent = $(this).closest('.st-item');
+        var point = $parent.find('.point em').text();
         $parent.addClass('act').siblings().removeClass('act');
         sendData.depositAmount = parseInt($parent.find('input').val());
         $itemDT02.find('button').prop('disabled', true);
-        $ele.find('.charge-complete span').html($parent.find('.point em').text());
-        setDeposit(sendData);
+        $ele.find('.charge-complete span').html(point);
+        if(confirm('회원권 [적립 '+ point +'원]을 신청하시겠습니까?')) {
+          setDeposit(sendData);
+        }
       });
     }
   }
@@ -276,11 +279,11 @@ var charge = (function () {
   function setDeposit(sendData){
     var response = ajaxCall.post('/reservation/api/deposit.art', {data: sendData, isReturn: true});
     if (response.code === '100') {
-      $obj.find('.guide').hide();
+      $ele.find('.guide').text('회원권 신청이 완료되었습니다.');
       $ele.find('.charge-complete').show();
       messageSet($ele, 'charge');
     } else {
-      $obj.find('.guide').show();
+      $obj.find('.guide').text('선택 버튼을 누르면 회원권 신청이 완료됩니다.');
       $ele.find('.charge-complete').hide();
       $itemDT02.find('button').prop('disabled', false);
       messageSet($ele, 'custom', [response.msg]);

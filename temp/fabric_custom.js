@@ -1,10 +1,13 @@
 var eventPhoto = (function () {
   var canvas;
+  var $sticker;
+  var stickerCount = 0;
 
   return {init: init};
 
   function init() {
     canvas = new fabric.Canvas('c');
+    $sticker = $('.sticker span');
 
     /* 사진선택 */
     $('#imgLoader').change(function() {
@@ -14,18 +17,41 @@ var eventPhoto = (function () {
     });
 
     /* 스티커 선택 */
-    $('.sticker img').off('click').on('click', function(){
-      fabricObjectSet('remove', 'sticker');
-      fabric.Image.fromURL($(this).attr('src'), function(img){
-        img.set({id:'sticker'});
-        canvas.add(img);
-      });
+    $sticker.off('click').on('click', function(){
+      var $this = $(this);
+      if(!$this.hasClass('active')) {
+        $this.addClass('active');
+        var stickerNum = $this.index();
+        fabric.Image.fromURL($this.find('img').attr('src'), function(img){
+          img.set({id:'sticker' + stickerNum});
+          canvas.add(img);
+        });
+      }
     });
 
     /* 다운로드 */
     $('#b').off('click').on('click', function(){
       download(canvas.toDataURL(),'test.png');
     });
+
+    /* 스티커 삭제 */
+    $('#remove').off('click').on('click', stickerRemove);
+    window.addEventListener('keydown', function(event){
+      if(event.defaultPrevented) {return;}
+      var handled = false;
+      if(event.keyCode === 8 || event.keyCode === 46) {handled = true;}
+      if(handled) {stickerRemove(); event.preventDefault();}
+    });
+  }
+
+  function stickerRemove(){
+    var activeObjects = canvas.getActiveObjects();
+    canvas.discardActiveObject();
+    if (activeObjects.length) {
+      var stickerNum = activeObjects[0].id.replace(/[^0-9]/g,'');
+      $sticker.eq(stickerNum).removeClass('active');
+      canvas.remove.apply(canvas, activeObjects);
+    }
   }
 
   function canvasReadURL(input){

@@ -58,9 +58,13 @@ var utils = {
     }
   },
   nameHidden : function(str) {
-    var regExp = /([가-힣1-9]{1})([가-힣1-9]{1,})([가-힣1-9]{1})/g;
-    var hiddenText = String('*').repeat(str.length-2);
-    return str.replace(regExp, '$1'+ hiddenText +'$3');
+    if(str.length>=3) {
+      var regExp = /([가-힣1-9]{1})([가-힣1-9]{1,})([가-힣1-9]{1})/g;
+      var hiddenText = String('*').repeat(str.length-2);
+      return str.replace(regExp, '$1'+ hiddenText +'$3');
+    } else {
+      return str.substring(0,1) + '*';
+    }
   },
   loading: function(flag, txt){
     var $ele = $('.loading');

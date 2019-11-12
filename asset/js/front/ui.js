@@ -130,7 +130,7 @@ var ui = (function () {
 })();
 
 var ajaxCall = (function(){
-  var restURL = 'http://218.232.122.36:8080';
+  var restURL = 'http://gold.artichildren.com/';
 
   return {
     post:postAct,

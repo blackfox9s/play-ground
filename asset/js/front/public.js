@@ -74,10 +74,10 @@ function messageSet($obj, type, customArr){
   var txtArray = {
     resPointTimeCheck: ['현재는 예약을<br />진행할 수 없습니다.'],
     resChildNoSelect: ['자녀를 선택해주세요.'],
-    resSuccess : ['예약이 완료되었습니다.<br />취소는 24시간 전에 가능합니다.'],
+    resSuccess : [' 예약이 완료되었습니다.<br />취소는 24시간 전까지 가능합니다'],
     charge: [
       '<strong>입금 안내 문자</strong>를 확인하시고<br>입금을 진행해 주시기 바랍니다.',
-      '회원권은 적립금 신청 후, 1시간 내에 입금 하셔야<br>적립이 정상적으로 진행됩니다.'
+      '입금 신청 후, 1시간 내에 입금하셔야<br />예약 확정이 정상적으로 진행됩니다.'
     ],
     cancel : [],
     cancelBefore: [
