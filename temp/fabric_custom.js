@@ -14,6 +14,7 @@ var eventPhoto = (function () {
       fabricObjectSet('remove', 'photo');
       canvasReadURL(this);
       fabricObjectSet('backwards', 'photo');
+      console.log(this)
     });
 
     /* 스티커 선택 */
@@ -88,6 +89,7 @@ var eventPhoto = (function () {
   }
 
   function download(url, name){
+    
     $('<a>').attr({href:url, download:name})[0].click();
   }
 })();

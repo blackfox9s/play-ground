@@ -77,7 +77,6 @@
         border-radius: rem(48);
         padding: 0 0 0 rem(48);
         background: $spot1BrandColor;
-        @include spotCustomSelect;
         &.selected {
           display: none;
         }
@@ -104,8 +103,6 @@
       border-radius: 100%;
     }
   }
-
-
 }
 
 .signup-form {

@@ -1,29 +1,318 @@
 @charset "UTF-8";
 
+.login-form {
+  .custom-select {
+    dd {
+      p {
+        &:nth-of-type(3n+1) {
+          background: $spot1BrandColor !important;
+        }
+
+        &:nth-of-type(3n+2) {
+          background: $spot2BrandColor !important;
+        }
+
+        &:nth-of-type(3n+3) {
+          background: $spot3BrandColor !important;
+        }
+      }
+    }
+  }
+}
+
 .main-spot1 {
-  /* _calender.scss */
   .datepicker_calendar {
     .active span {
       background-color: $spot1BrandColor;
     }
   }
 
-  /* _input.scss */
   .custom-input-checkbox {
     input:checked + span {
       color: $spot1BrandColor;
-      * {color: $spot1BrandColor;}
-      a {border-bottom-color: $spot1BrandColor;}
-      &:before {background-color: $spot1BrandColor;}
+
+      * {
+        color: $spot1BrandColor;
+      }
+
+      a {
+        border-bottom-color: $spot1BrandColor;
+      }
+
+      &:before {
+        background-color: $spot1BrandColor;
+      }
     }
   }
 
-  /* 로그인/회원가입 : _contentLogin.scss */
   .login-form {
-    .sel input {@include spotColorSet(1);}
-    .btn-groups .btn.bt-login {@include spotColorSet(1);}
+    .custom-select dd p {
+      background: $spot1BrandColor;
+    }
+
+    .sel input {
+      color: $baseColor1;
+      background: $spot1BrandColor;
+    }
+
+    .btn-groups .btn.bt-login {
+      color: $baseColor1;
+      background: $spot1BrandColor;
+    }
   }
+
   .signup-form {
-    .btn-groups .btn.bt-join {@include spotColorSet(1);}
+    .btn-groups .btn.bt-join {
+      color: $baseColor1;
+      background: $spot1BrandColor;
+    }
+  }
+
+  .reservation-part {
+    .custom-table dd.active .sel {
+      background: $spot1BrandColor;
+    }
+
+    .timetable li.active .btn {
+      color: $baseColor1;
+      background: $spot1BrandColor;
+    }
+  }
+
+  .charge {
+    &-part {
+      .charge-complete {
+        background: $spot1BrandColor;
+      }
+    }
+
+    &-list {
+      .st-item.act button {
+        color: $baseColor1;
+        background: $spot1BrandColor;
+      }
+
+      li.active > p {
+        color: $baseColor1;
+        background: $spot1BrandColor;
+      }
+    }
+  }
+
+  .children-part {
+    .bt-childRegister {
+      color: $baseColor1;
+      background: $spot1BrandColor;
+    }
+  }
+
+  .my-reservation {
+    &-list li div {
+      background: $spot1BrandColor;
+    }
+  }
+
+  .customer-part {
+    .call .btn {
+      background: $spot1BrandColor;
+    }
+  }
+}
+
+.main-spot2 {
+  .datepicker_calendar {
+    .active span {
+      background-color: $spot2BrandColor;
+    }
+  }
+
+  .custom-input-checkbox {
+    input:checked + span {
+      color: $spot2BrandColor;
+
+      * {
+        color: $spot2BrandColor;
+      }
+
+      a {
+        border-bottom-color: $spot2BrandColor;
+      }
+
+      &:before {
+        background-color: $spot2BrandColor;
+      }
+    }
+  }
+
+  .login-form {
+    .custom-select dd p {
+      background: $spot2BrandColor;
+    }
+
+    .sel input {
+      color: $baseColor1;
+      background: $spot2BrandColor;
+    }
+
+    .btn-groups .btn.bt-login {
+      color: $baseColor1;
+      background: $spot2BrandColor;
+    }
+  }
+
+  .signup-form {
+    .btn-groups .btn.bt-join {
+      color: $baseColor1;
+      background: $spot2BrandColor;
+    }
+  }
+
+  .reservation-part {
+    .custom-table dd.active .sel {
+      background: $spot2BrandColor;
+    }
+
+    .timetable li.active .btn {
+      color: $baseColor1;
+      background: $spot2BrandColor;
+    }
+  }
+
+  .charge {
+    &-part {
+      .charge-complete {
+        background: $spot2BrandColor;
+      }
+    }
+
+    &-list {
+      .st-item.act button {
+        color: $baseColor1;
+        background: $spot2BrandColor;
+      }
+
+      li.active > p {
+        color: $baseColor1;
+        background: $spot2BrandColor;
+      }
+    }
+  }
+
+  .children-part {
+    .bt-childRegister {
+      color: $baseColor1;
+      background: $spot2BrandColor;
+    }
+  }
+
+  .my-reservation {
+    &-list li div {
+      background: $spot2BrandColor;
+    }
+  }
+
+  .customer-part {
+    .call .btn {
+      background: $spot2BrandColor;
+    }
+  }
+}
+
+.main-spot3 {
+  .datepicker_calendar {
+    .active span {
+      background-color: $spot3BrandColor;
+    }
+  }
+
+  .custom-input-checkbox {
+    input:checked + span {
+      color: $spot3BrandColor;
+
+      * {
+        color: $spot3BrandColor;
+      }
+
+      a {
+        border-bottom-color: $spot3BrandColor;
+      }
+
+      &:before {
+        background-color: $spot3BrandColor;
+      }
+    }
+  }
+
+  .login-form {
+    .custom-select dd p {
+      background: $spot3BrandColor;
+    }
+
+    .sel input {
+      color: $baseColor1;
+      background: $spot3BrandColor;
+    }
+
+    .btn-groups .btn.bt-login {
+      color: $baseColor1;
+      background: $spot3BrandColor;
+    }
+  }
+
+  .signup-form {
+    .btn-groups .btn.bt-join {
+      color: $baseColor1;
+      background: $spot3BrandColor;
+    }
+  }
+
+  .reservation-part {
+    .custom-table dd.active .sel {
+      background: $spot3BrandColor;
+    }
+
+    .timetable li.active .btn {
+      color: $baseColor1;
+      background: $spot3BrandColor;
+    }
+  }
+
+  .charge {
+    &-part {
+      .charge-complete {
+        background: $spot3BrandColor;
+      }
+    }
+
+    &-list {
+      .st-item.act button {
+        color: $baseColor1;
+        background: $spot3BrandColor;
+      }
+
+      li.active > p {
+        color: $baseColor1;
+        background: $spot3BrandColor;
+      }
+    }
+  }
+
+  .children-part {
+    .bt-childRegister {
+      color: $baseColor1;
+      background: $spot3BrandColor;
+    }
+  }
+
+  .my-reservation {
+    &-list li div {
+      background: $spot3BrandColor;
+    }
+  }
+
+  .customer-part {
+    .call .btn {
+      background: $spot3BrandColor;
+    }
   }
 }

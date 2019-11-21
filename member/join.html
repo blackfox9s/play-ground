@@ -69,19 +69,19 @@
         <dd>
           <label class="custom-input-checkbox">
             <input type="checkbox" data-valid="서비스 이용약관에 동의해주세요." />
-            <span><a href="#">서비스 이용약관</a>에 동의합니다.<i>(필수)</i></span>
+            <span><a href="javascript:ui.termsPopupOpen('service');">서비스 이용약관</a>에 동의합니다.<i>(필수)</i></span>
           </label>
         </dd>
         <dd>
           <label class="custom-input-checkbox">
             <input type="checkbox" data-valid="개인정보 수집 및 이용에 동의해주세요." />
-            <span><a href="#">만 14세 이상이며, 개인정보 수집 및 이용</a>에 동의합니다. <i>(필수)</i></span>
+            <span><a href="javascript:ui.termsPopupOpen('private');">만 14세 이상이며, 개인정보 수집 및 이용</a>에 동의합니다. <i>(필수)</i></span>
           </label>
         </dd>
         <dd>
           <label class="custom-input-checkbox">
             <input type="checkbox" name="agree1" value="y" />
-            <span><a href="#">홍보 마케팅 목적 개인정보 수집 및 이용</a>에 동의합니다. <i>(선택)</i></span>
+            <span><a href="javascript:ui.termsPopupOpen('marketing');">홍보 마케팅 목적 개인정보 수집 및 이용</a>에 동의합니다. <i>(선택)</i></span>
           </label>
         </dd>
       </dl>
@@ -92,6 +92,26 @@
       </div>
     </form>
   </main>
+</div>
+
+<div class="pop-wrap" data-pop-name="terms">
+  <div class="pop-outer">
+    <div class="pop-inner">
+      <div class="pop-sec pop-terms">
+        <section class="pop-header">
+          <h1></h1>
+          <span class="pop-close">
+            <a href="javascript:popup.layerClose('terms');" data-bt-act="pop-close" class="fas fa-times">
+              <span class="sr-only">닫기</span>
+            </a>
+          </span>
+        </section>
+        <section class="pop-body">
+          <div class="pop-terms-contents"></div>
+        </section>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script type="text/javascript" src="/asset/js/require.config.js"></script>

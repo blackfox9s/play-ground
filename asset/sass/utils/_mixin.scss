@@ -44,26 +44,3 @@
   }
 }
 
-@mixin spotColorSet($spot){
-  color: $baseColor1;
-  @if $spot == 1 {
-    background: $spot1BrandColor;
-  } @else if $spot == 2 {
-    background: $spot2BrandColor;
-  } @else if $spot == 3 {
-    background: $spot3BrandColor;
-  }
-}
-
-@mixin spotCustomSelect{
-  &:nth-of-type(3n+1) {
-    background: $spot1BrandColor;
-  }
-  &:nth-of-type(3n+2) {
-    background: $spot2BrandColor;
-  }
-  &:nth-of-type(3n+3) {
-    background: $spot3BrandColor;
-  }
-}
-

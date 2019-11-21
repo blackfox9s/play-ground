@@ -54,16 +54,17 @@
     &:before, &:after {
       content: '';
       position: absolute;
-      left: 0;
     }
     &:before {
       top: rem(-7);
+      left: rem(2);
       width: rem(53);
       height: rem(53);
       background: $grey-dark1;
     }
     &:after {
       top: rem(-9);
+      left: 0;
       width: rem(57);
       height: rem(57);
       background: url('../../../asset/images/arrow/checkbox-bg.png') 50% no-repeat;

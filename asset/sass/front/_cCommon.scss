@@ -127,6 +127,7 @@
       .cell {
         display: table-cell;
         border-bottom: 1px solid $grey-dark2;
+        white-space: nowrap;
       }
       .btn {
         height: rem(70);
@@ -362,7 +363,14 @@
 
 /* 나의 예약현황 */
 .my-reservation {
-  &-part {}
+  &-part {
+    .cs-text {
+      color: $grey-dark2;
+      font-size: rem(27);
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+  }
   &-sch {
     button {
       width: 100%;
@@ -384,7 +392,6 @@
       div {
         padding-top: 100%;
         position: relative;
-        background: $spot1BrandColor;
         border-radius: 100%;
       }
       span {
@@ -397,13 +404,13 @@
       }
       &.active {
         div {
-          background: $baseColor1;
-          color: $grey-light6;
+          background: $baseColor1 !important;
+          color: $grey-light6 !important;
         }
       }
       &.disabled {
         div {
-          background: $grey-light2;
+          background: $grey-light2 !important;
         }
       }
     }
@@ -455,7 +462,6 @@
       font-size: rem(45);
       text-align: center;
       border-radius: 100%;
-      background: $spot1BrandColor;
     }
     p {
       margin-top: rem(60);
@@ -479,38 +485,49 @@
       width: 100%;
     }
   }
+}
 
-  .main-spot1 & {
-    .call .btn {background: $spot1BrandColor;}
+.pop {
+  &-header {
+    $size: 28;
+    padding: rem(24) rem(30);
+    h1 {
+      font-weight: 700;
+      font-size: rem(24);
+      text-align: left;
+      width: auto;
+      height: auto;
+    }
+    .pop-close {
+      position: absolute;
+      line-height: 0;
+      top: 50%;
+      right: rem(30);
+      margin-top: rem(-$size/2);
+    }
+    .fa-times {
+      position: relative;
+      font-size: rem($size);
+      color: $grey-dark4;
+    }
   }
-
-  .main-spot2 & {
-    .call .btn {background: $spot2BrandColor;}
-  }
-
-  .main-spot3 & {
-    .call .btn {background: $spot3BrandColor;}
+  &-body {
+    padding: rem(24) rem(30);
   }
 }
 
+.pop-terms {
+  &-contents {
+    margin: 0 rem(-30);
+    padding: 0 rem(30);
+    height: rem(800);
+    font-size: rem(24);
+    white-space: pre-line;
+    overflow-y: scroll;
+  }
+}
 
 /**************************************************/
 
 .main-spot1 {
-  .reservation-part {
-    .custom-table dd.active .sel {background: $spot1BrandColor;}
-    .timetable li.active .btn {color: $baseColor1; background: $spot1BrandColor;}
-  }
-  .charge {
-    &-part {
-      .charge-complete {background: $spot1BrandColor;}
-    }
-    &-list {
-      .st-item.act button {color: $baseColor1; background: $spot1BrandColor;}
-      li.active > p {color: $baseColor1; background: $spot1BrandColor;}
-    }
-  }
-  .children-part {
-    .bt-childRegister {color: $baseColor1; background: $spot1BrandColor;}
-  }
 }

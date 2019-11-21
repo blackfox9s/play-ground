@@ -8,7 +8,8 @@ var ui = (function () {
     loginCookie: loginCookieSet,
     agreeCheck: agreeCheck,
     datePicker:datePickerSetting,
-    logout:logout
+    logout:logout,
+    termsPopupOpen: termsPopupOpen,
   };
 
   function init() {
@@ -127,16 +128,31 @@ var ui = (function () {
       });
     });
   }
+
+  /* 약관 */
+  function termsPopupOpen(type) {
+    var $terms = $('[data-pop-name="terms"]');
+    var response = ajaxCall.post('member/api/terms.art', {
+      isReturn: true,
+      data: {termsCode: type}
+    });
+    var title = '테스트';
+    $terms.find('h1').html(title);
+    $terms.find('.pop-terms-contents').html(response.terms.termsDescription);
+    popup.layerOpen('terms')
+  }
 })();
 
 var ajaxCall = (function(){
-  var restURL = 'http://gold.artichildren.com/';
+  var protocol = location.protocol;
+  var host = location.host;
+  var port = location.port;
+  var serverURL = protocol + '//' + host + '/';
+  var restURL = port ? 'http://gold.artichildren.com/' : serverURL;
 
   return {
     post:postAct,
     get:getAct,
-    put:putAct,
-    delete:delAct,
     html: htmlAct
   };
 
@@ -147,7 +163,8 @@ var ajaxCall = (function(){
     var data = (option.data === undefined ? '' : option.data);
 
     $.ajax({
-      async: !isReturn,
+      cache : false,
+      async: false,
       crossDomain: true,
       url: restURL + dataURL,
       type: 'POST',
@@ -179,6 +196,7 @@ var ajaxCall = (function(){
     var data = (option.data === undefined ? '' : option.data);
 
     $.ajax({
+      cache : false,
       async: false,
       crossDomain: true,
       url: restURL + dataURL,
@@ -201,40 +219,19 @@ var ajaxCall = (function(){
     }
   }
 
-  function putAct(){}
-
-  function delAct(){}
-
   function htmlAct(dataUrl){
     var returnValue = '';
     $.ajax({
+      cache : false,
+      async: false,
       url: '../asset/js/front/html/' + dataUrl,
       dataType : 'html',
-      async: false,
       xhrFields: {withCredentials: true},
       success: function (data) {
         returnValue = data;
       }
     });
     return returnValue;
-  }
-
-  function multypart(){
-    var callback = (option.callback === undefined ? false : option.callback);
-    var data = (option.data === undefined ? '' : option.data);
-    $.ajax({
-      async: true,
-      crossDomain: true,
-      url: restURL + dataURL,
-      method: 'POST',
-      headers: { 'cache-control': 'no-cache' },
-      processData: false,
-      contentType: false,
-      mimeType: 'multipart/form-data',
-      data: data,
-    }).done(function (response) {
-      if(callback) {callback(JSON.parse(response));}
-    });
   }
 })();
 
