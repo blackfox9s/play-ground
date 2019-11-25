@@ -56,6 +56,7 @@ var myReservation = (function () {
   var moment, weekArr = ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'];
   var timeTableSource = {box: '', list:''};
   var timeTableData, timeTableSelectedInfo = null;
+  var listState = '', cancleAmount=0;
 
   return {init: init};
 
@@ -70,10 +71,12 @@ var myReservation = (function () {
   function getReservationList(){
     messageSet($ele.parent(), 'cancelBefore');
     $obj.empty();
+    $obj.parent().hide();
     var response = ajaxCall.post('/reservation/api/getReservationDate.art', {data: sendData, isReturn: true});
     if(response.code === '100') {
       var list = response.reservationDateList;
       if(list.length > 0) {
+        $obj.parent().show();
         var arr = [parseInt(list.length / 5), list.length % 5];
         var division =  5 * (arr[0] + (arr[1] > 0 ? 1 : 0));
         for(var i=0; i < division; i++) {
@@ -84,6 +87,8 @@ var myReservation = (function () {
           }
         }
         btnReservationAct();
+      } else {
+        messageSet($ele, 'custom', ['예약현황이 없습니다.'])
       }
     } else {
       alert(response.msg);
@@ -172,7 +177,11 @@ var myReservation = (function () {
       $this.addClass('active');
       cancelConfirm(false);
     });
-    $ele.find('.timetable .bt-cancel').off('click').on('click', getTimeTableCancelCheck);
+    $ele.find('.timetable .bt-cancel').off('click').on('click', function() {
+      listState = $(this).parents('li').attr('data-state');
+      cancleAmount = $(this).parents('li').find('.program-amount').html();
+      getTimeTableCancelCheck();
+    });
     $ele.find('.bt-cancel-no').off('click').on('click', function(){
       cancelConfirm(false);
       timeTableSelectedInfo = null;
@@ -194,7 +203,7 @@ var myReservation = (function () {
     } else {
       if(response.code === '100') {
         cancelConfirm(true);
-        messageSet($obj, 'cancelContinue')
+        scrollMove($ele.find('.my-reservation-cancel-confirm'));
       } else if(response.code === '308'){
         cancelConfirm(true);
         messageSet($obj, 'custom', [response.msg])
@@ -211,9 +220,11 @@ var myReservation = (function () {
     var response = ajaxCall.post('/reservation/api/reservationCancel.art', {data: sendData, isReturn: true});
     cancelConfirm(false);
     if(response.code === '100') {
-      $ele.find('.custom-table .point').html(utils.numUnit(response.point))
+      $ele.find('.custom-table .point').html(utils.numUnit(response.point));
       getTimeTableList();
-      messageSet($ele, 'cancelComplete');
+      messageSet($ele, 'cancelComplete' + listState, [cancleAmount]);
+      listState = '';
+      cancleAmount = 0;
     } else {
       messageSet($ele, 'custom', [response.msg]);
     }

@@ -12,20 +12,37 @@ var schedule = (function () {
 
   function init() {
     $ele = $('.schedule-part');
+    getTimetableImage();
+  }
 
-    var response = ajaxCall.post('member/api/terms.art', {isReturn: true, data: {termsCode: 'private'}});
-
-    console.log(response);
-
-    var source = '<div class="item"><img src="../asset/images/schedule/1.jpg" /></div>';
-
-    $ele.find('.slider').slick({
-      dots: false,
-      infinite: true,
-      speed: 300,
-      swipe: false,
-      slidesToShow: 1,
-      adaptiveHeight: true
-    })
+  function getTimetableImage(){
+    var $slide = $ele.find('.slider');
+    var response = ajaxCall.get('timetable/api/getTimetableImage.art', {isReturn: true});
+    if(response.code === '100') {
+      var resData = response.timetableImage;
+      if(resData.length > 0) {
+        for(var i=0; i<resData.length; i++) {
+          $slide.append(htmlTimetableImage(resData[i]));
+        }
+        $slide.slick({
+          dots: false,
+          infinite: true,
+          speed: 300,
+          swipe: false,
+          slidesToShow: 1,
+          adaptiveHeight: true
+        });
+      }
+    } else {
+      alert(response.msg);
+    }
+  }
+  function htmlTimetableImage(val){
+    var source = '<div class="item"><img src="{src}" /></div>';
+    return source.replace(/({src})/g, function(v){
+      switch(v){
+        case '{src}' : return val.url;
+      }
+    });
   }
 })();

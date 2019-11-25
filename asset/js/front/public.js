@@ -86,10 +86,15 @@ function messageSet($obj, type, customArr){
     cancelContinue: [
       '예약금 환불이 가능합니다.'
     ],
-    cancelComplete : [
+    cancelCompleteRS00 : [
       '예약 취소가 완료되었습니다.',
-      '환불방법 : 010-9578-8278 연락처로<br />[취소날짜, 시간, 아이이름]<br />계좌번호(계좌명)를 남겨주세요.',
-      '매일 저녁 일괄적으로 환불처리 도와드리겠습니다.'
+      // '환불방법 : 010-9578-8278 연락처로<br />[취소날짜, 시간, 아이이름]<br />계좌번호(계좌명)를 남겨주세요.RS01',
+      // '매일 저녁 일괄적으로 환불처리 도와드리겠습니다.'
+    ],
+    cancelCompleteRS01 : [
+      '예약 취소가 완료되었습니다.',
+      // '환불방법 : 010-9578-8278 연락처로<br />[취소날짜, 시간, 아이이름]<br />계좌번호(계좌명)를 남겨주세요.RS02',
+      // '매일 저녁 일괄적으로 환불처리 도와드리겠습니다.'
     ]
   };
 
@@ -102,12 +107,17 @@ function messageSet($obj, type, customArr){
     case 'cancelBefore' : targetTxt = txtArray.cancelBefore; break;
     case 'cancelNot' : targetTxt = txtArray.cancelNot; break;
     case 'cancelContinue' : targetTxt = txtArray.cancelContinue; break;
-    case 'cancelComplete' : targetTxt = txtArray.cancelComplete; break;
+    case 'cancelCompleteRS00' : targetTxt = txtArray.cancelCompleteRS00; break;
+    case 'cancelCompleteRS01' : targetTxt = txtArray.cancelCompleteRS01; break;
     case 'custom' : targetTxt = customArr; break;
   }
   if(type === 'resSuccess') {
     targetTxt[0] =  customArr.date + '('+ customArr.day +') '+ customArr.time +'<br />' +
       customArr.title + ' ' + targetTxt[0]
+  }else if(type === 'cancelCompleteRS00') {
+    // targetTxt[2] = customArr[0];
+  }else if(type === 'cancelCompleteRS01') {
+    // targetTxt[2] = customArr[0];
   }
 
   replaceSource = source.replace(/({txt1}|{txt2}|{txt3})/g, function(v){
