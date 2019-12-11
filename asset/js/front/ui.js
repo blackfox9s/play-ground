@@ -136,8 +136,7 @@ var ui = (function () {
       isReturn: true,
       data: {termsCode: type}
     });
-    var title = '테스트';
-    $terms.find('h1').html(title);
+    $terms.find('h1').html(response.terms.termsTitle);
     $terms.find('.pop-terms-contents').html(response.terms.termsDescription);
     popup.layerOpen('terms')
   }

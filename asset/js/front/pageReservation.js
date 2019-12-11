@@ -34,10 +34,16 @@ var reservation = (function () {
   /* 자녀선택 */
   function childrenSelectAction(){
     var $obj = $('[data-info="child"]');
-    $obj.find('dd').not('.no-list').off('click').on('click', function(){
-      sendData.childrenSeq = parseInt($(this).find('input').val());
-      $(this).addClass('active').siblings().removeClass('active');
+    var selectAct = function(target){
+      sendData.childrenSeq = parseInt(target.find('input').val());
+      target.addClass('active').siblings().removeClass('active');
       timeTableSchCheck();
+    };
+    if($obj.find('dd').not('.no-list').length === 1 ){
+      selectAct($obj.find('dd').not('.no-list').eq(0));
+    }
+    $obj.find('dd').not('.no-list').off('click').on('click', function(){
+      selectAct($(this));
     });
   }
 
