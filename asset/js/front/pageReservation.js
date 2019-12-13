@@ -134,8 +134,9 @@ var reservation = (function () {
     });
     $ele.find('.bt-booking').off('click').on('click', function(){
       var $selectMsg = $ele.find('.timetable-select');
+      var openCheckCode = openTimeCheck().code;
       var source = '<span>{date}({day}) {time}</span><em>{title}</em>를 선택하셨습니다.<br />' +
-        '아래 버튼을 눌러 예약을 진행해 주세요.';
+        (openCheckCode !== '100' ? '' : '아래 버튼을 눌러 예약을 진행해 주세요.');
       source = source.replace(/({date}|{day}|{time}|{title})/g, function(v){
         switch(v){
           case '{date}' : return calenderSelected.date;
@@ -148,11 +149,17 @@ var reservation = (function () {
       scrollMove($selectMsg);
 
       /* (포인트-결제금액)상태별 버튼 노출 상태 변경 */
-      $charge.show();
       if(point >= sendData.timetableInfo.amount){
-        $charge.find('li').show().filter('[data-depositType!="DT00"]').hide();
+        // 포인트 결제
+        $charge.show().find('li').show().filter('[data-depositType!="DT00"]').hide();
       } else {
-        $charge.find('li').show().filter('[data-depositType="DT00"]').hide();
+        // 1회권, 회원권 충전
+        if(openCheckCode !== '100') {
+          messageSet($ele, 'resPointTimeCheck');
+          alert('신청은 AM10시 ~ PM8시 사이에 신청해주시기 바랍니다.');
+        } else {
+          $charge.show().find('li').show().filter('[data-depositType="DT00"]').hide();
+        }
       }
     });
     $charge.find('li').off('click').on('click', function(){

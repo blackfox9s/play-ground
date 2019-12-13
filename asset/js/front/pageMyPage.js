@@ -30,6 +30,11 @@ var childrenReg = (function () {
         ajaxCall.post('/member/api/addChildren.art', {data: sendData, callback:listUpdateAfter});
       }, 100);
     });
+
+    $('button.bt-child-check').off('click').on('click', function(){
+      alert('회원가입이 완료되었습니다.\n예약을 진행해주세요.');
+      location.href = isLocal ? '/reservation/reservation.html' : '/reservation/info.art';
+    });
   }
 
   function listUpdateAfter(response){

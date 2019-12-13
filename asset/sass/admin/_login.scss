@@ -4,12 +4,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    > div, > form {
+      width: 80%;
+      max-width: 320px;
+    }
   }
 }
 
 .login-box {
-  width: 80%;
-  max-width: 320px;
   padding: 20px 20px 25px;
   box-shadow: 0 0 4px 3px $oColor2;
   background: $grey-light6;
