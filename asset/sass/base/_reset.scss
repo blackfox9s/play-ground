@@ -130,6 +130,7 @@ caption, .sr-only {
     background: $grey-light6;
     max-height: 100%;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     margin: 0 auto;
     max-width: 700px;
   }

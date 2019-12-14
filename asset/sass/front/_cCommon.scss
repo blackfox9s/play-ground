@@ -540,6 +540,7 @@
     font-size: rem(24);
     white-space: pre-line;
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
   }
 }
 

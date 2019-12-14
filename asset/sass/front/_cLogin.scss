@@ -7,6 +7,7 @@
     display: table;
     margin: 0 auto;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 
     h1 {
       width: rem(236);
